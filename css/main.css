@@ -1,0 +1,21 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+label {
+  display: block;
+  margin: 10px;
+}
+
+input {
+  padding: 5px;
+}
+
+.error {
+  background-color: red;
+}
+
+.submit {
+  background-color: green;
+}
