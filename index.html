@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="style.css">
+  <title>Form</title>
+</head>
+
+<body>
+  <section class="form__wrapper">
+    <form action="javascript:void(0)" id="form">
+      <input placeholder="Full name" type="text" class="form__input form__field" id="full-name"
+        autocomplete="off" required>
+      <label class="form__privacy-settings">
+        <input type="checkbox" id="privacyCheck"> 
+        I would prefer not to specify my phone number and home town
+      </label>
+      <input type="text" placeholder="Number" class="form__input form__field" id="number" autocomplete="off">
+      <div id="select-box">
+        <select size="1" id="region" class="form__input form__field">
+          <option value=""></option>
+        </select>
+        <select size="1" id="city" class="form__input form__field elem_hidden">
+          <option></option>
+          <option>Not in the list</option>
+        </select>
+      </div>
+
+      <input type="submit" value="Submit" class="form__input form__submit" id="submit" disabled>
+    </form>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
