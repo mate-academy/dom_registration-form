@@ -106,6 +106,7 @@ const isFormDataValid = () => {
     return name.classList.contains('input_correct');
   } else {
     return [...formBox.querySelectorAll('.form__field')]
+      .filter(input => !input.classList.contains('elem_hidden'))
       .every(input => input.classList.contains('input_correct'));
   }
 }
