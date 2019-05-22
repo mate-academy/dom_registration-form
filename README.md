@@ -1,5 +1,7 @@
 # Registration Form
 
+ - [previev](https://laliquenoare.github.io/dom_registration-form/)
+
 1) Create an input field for entering the full name of a person. The background of the control should be one of the three colors:
     - white, if the user hasn’t yet once focused on the field or the field is currently in focus (the user hasn’t finished typing);
     - green if the field is not currently in focus and the name provided by the user consists of exactly 2 or 3 words (after trimming);
