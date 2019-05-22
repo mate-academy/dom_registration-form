@@ -1,0 +1,12 @@
+form {
+  display: flex; 
+  flex-direction: column; 
+}
+
+input, .regions {
+  margin-bottom: 20px;
+}
+
+button {
+  width: 100px;
+}
