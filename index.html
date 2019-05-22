@@ -12,12 +12,68 @@
 
 <body>
   <form action="#">
-    <label>Your full name: 
+    <label>Your full name:
       <input type="text" name="full-name" class="input-fullname">
+
     </label>
-    <label>Your phone number: 
-        <input type="tel" name="phone" class="input-phonenumber" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+    <label>I would prefer not to specify my phone number and home town:
+        <input type="checkbox">
       </label>
+    <div class="more-info">
+      <label>Your phone number:
+        <input type="tel" name="phone" class="input-phonenumber">
+      </label>
+      <label>Choose your ragion:
+        <select class="select">
+          <option></option>
+          <option>Kyiv</option>
+          <option>Center</option>
+          <option>North</option>
+          <option>East</option>
+          <option>South</option>
+          <option>West</option>
+        </select>
+        <select class="center">
+          <option value=""></option>
+          <option value="">Cherkasy</option>
+          <option value="">Dnipro</option>
+          <option value="">Kropyvnytskyi</option>
+          <option value="">Poltava</option>
+          <option value="">Vinnytsia</option>
+          <option value="">Zhytomyr</option>
+        </select>
+        <select class="North">
+          <option value=""></option>
+          <option value="">Chernihiv</option>
+          <option value="">Sumy</option>
+        </select>
+        <select class="East">
+          <option value=""></option>
+          <option value="">Donetsk</option>
+          <option value="">Kharkiv</option>
+          <option value="">Luhansk</option>
+        </select>
+        <select class="South">
+          <option value=""></option>
+          <option value="">Kherson</option>
+          <option value="">Mykolaiv</option>
+          <option value="">Odesa</option>
+          <option value="">Zaporizhzhia</option>
+        </select>
+        <select class="West">
+          <option value=""></option>
+          <option value="">Chernivtsi</option>
+          <option value="">Ivano-Frankivsk</option>
+          <option value="">Khmelnytskyi</option>
+          <option value="">Lutsk</option>
+          <option value="">Lviv</option>
+          <option value="">Rivne</option>
+          <option value="">Ternopil</option>
+          <option value="">Uzhhorod</option>
+        </select>
+      </label>
+    </div>
+    <button type="submit" disabled>Submit</button>
   </form>
 </body>
 
