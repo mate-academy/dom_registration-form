@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="styles.css">
+  <title>Document</title>
+</head>
+<body>
+  <form id="mainForm">
+    <input type="text" id="fullName">
+    <hr>
+    <input type="number" id="phoneNumber">
+    <hr>
+    <select id="selectRegion">
+      <option selected="selected" id="blankOptionRegion"></option>
+      <option id="Kyiv" >Kyiv</option>
+      <option id="Center" value="Center">Center (Cherkasy, Dnipro, Kropyvnytskyi, Poltava, Vinnytsia, Zhytomyr)</option>
+      <option id="North" value="North">North (Chernihiv, Sumy)</option>
+      <option id="East" value="East">East (Donetsk, Kharkiv, Luhansk)</option>
+      <option id="South" value="South">South (Kherson, Mykolaiv, Odesa, Zaporizhzhia)</option>
+      <option id="West" value="West">West (Chernivtsi, Ivano-Frankivsk, Khmelnytskyi, Lutsk, Lviv, Rivne, Ternopil, Uzhhorod)</option>
+    </select>
+    <hr>
+    <select id="selectCity">
+      <option selected="selected" id="blankOptionCity"></option>
+      <option id="Not_in_the_list">Not in the list</option>
+    </select>
+    <hr>
+    <label>I would prefer not to specify my phone number and home town
+    <input type="checkbox" id="checkbox">
+  </label>
+    <hr>
+  <button id="submitButton">Submit</button>
+  </form>
+  <script src ="scripts.js"></script>
+</body>
+</html>
