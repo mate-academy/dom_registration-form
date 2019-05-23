@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Registration form</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="login-wrap">
+        <div class="login-html">
+          <h1 class="sign-in">Registration form</h1>          
+        <div class="login-form">
+            <div class="sign-in-htm">
+            <form name="user">
+              <div class="group">
+                <label for="user" class="label">Name</label>
+                <input id="user" name="name" type="text" class="input">
+              </div>
+              
+              <div class="group">
+                <input id="check" type="checkbox" class="check">
+                <label for="check"><span class="icon"></span> I would prefer not to specify my phone number and home town</label>
+              </div>
+
+            <div class="refus">
+              <div class="group">
+                <label for="phone" class="label ">Phone</label>
+                <input id="phone" name="phone" type="tel" class="input">
+              </div>
+
+              <div class="group">
+                <label class="label">Region</label>
+                  <select class="input">
+                    <option value=""></option>
+                    <option>Kiev</option>
+                    <option>Center</option>
+                    <option>North</option>
+                    <option>East</option>
+                    <option>South</option>
+                    <option>West</option>
+                  </select> 
+              </div>
+           
+              <div class="group hidden city" id="Center">
+                  <label class="label">City</label>
+                    <select class="input">
+                        <option value=""></option>
+                        <option value="Cherkasy">Cherkasy</option>
+                        <option value="Dnipro">Dnipro</option>
+                        <option value="Kropyvnytskyi">Kropyvnytskyi</option>
+                        <option value="Poltava">Poltava</option>
+                        <option value="Vinnytsia">Vinnytsia</option>
+                        <option value="Zhytomyr">Zhytomyr</option>
+                    </select> 
+              </div>
+
+              <div class="group hidden city" id="North">
+                  <label class="label">City</label>
+                    <select class="input">
+                        <option value=""></option>
+                        <option value="Chernihiv">Chernihiv</option>
+                        <option value="Sumy">Sumy</option>
+                    </select> 
+              </div>
+
+              <div class="group hidden city" id="East">
+                  <label class="label"> City</label>
+                    <select class="input">
+                        <option value=""></option>
+                        <option value="Donetsk">Donetsk</option>
+                        <option value="Kharkiv">Kharkiv</option>
+                        <option value="Luhansk">Luhansk</option>
+                    </select> 
+              </div>
+
+              <div class="group hidden city" id="South">
+                  <label class="label">City</label>
+                    <select class="input">
+                        <option value=""></option>
+                        <option value="Kherson">Kherson</option>
+                        <option value="Mykolaiv">Mykolaiv</option>
+                        <option value="Odesa">Odesa</option>
+                        <option value="Zaporizhzhia">Zaporizhzhia</option>
+                    </select> 
+              </div>
+
+              <div class="group hidden city" id="West">
+                  <label class="label">City</label>
+                    <select class="input">
+                        <option value=""></option>
+                        <option value="Chernivtsi">Chernivtsi</option>
+                        <option value="Ivano-Frankivsk">Ivano-Frankivsk</option>
+                        <option value="Khmelnytskyi">Khmelnytskyi</option>
+                        <option value="Lutsk">Lutsk</option>
+                        <option value="Lviv">Lviv</option>
+                        <option value="Rivne">Rivne</option>
+                        <option value="Ternopil">Ternopil</option>
+                        <option value="Uzhhorod">Uzhhorod</option>
+                    </select> 
+                  
+              </div>
+            </div>
+              <div class="group">
+                <button class="button" name="submit" disabled>Send</button>
+              </div>
+            </form>
+              
+            </div>
+        </div>
+          
+        </div>
+      </div>
+  
+  <script src="script.js"></script>
+</body>
+</html>
