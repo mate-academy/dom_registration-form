@@ -19,16 +19,20 @@ const submit = document.querySelector('#submit');
 // events 
 
 form.addEventListener('change', (e) => {
-  isCorrectFullName();
-  isCorrectPhoneNubmer();
-  isCorrcetRegion();
+  if (e.target === inputFullName) {
+    isCorrectFullName(e.target);
+  }
+  if (e.target === inputPhoneNumber) {
+    isCorrectPhoneNubmer(e.target);
+  }
+  if (e.target === selectRegion) {
+    isCorrcetRegion(e.target);
+  }
+  if (e.target === hiddenPhoneAndTown) {
+    hidePhoneAndTown(e.target.checked);
+  }
   validateAllForm();
-}, true)
-
-hiddenPhoneAndTown.addEventListener('change', (e) => {
-   hidePhoneAndTown(e.target.checked);
-   validateAllForm();
-});
+})
  
 // secondary functions for event handler
 
@@ -42,31 +46,30 @@ function hidePhoneAndTown(isChecked) {
    }
 }
 
-function isCorrectFullName() {
-  console.log(inputFullName.value)
- const amountWords = inputFullName.value.trim().split(' ').length;
+function isCorrectFullName(fullName) {
+ const amountWords = fullName.value.trim().split(' ').length;
  if (amountWords > 1 && amountWords <= 3) {
-   inputFullName.className = 'correct';
+   fullName.className = 'correct';
  } else {
-  inputFullName.className = 'incorrect';
+  fullName.className = 'incorrect';
  }
 }
 
-function isCorrectPhoneNubmer() {
-  const onlyNums = inputPhoneNumber.value.replace(/[\s\-\(\)]/g, '');
+function isCorrectPhoneNubmer(phoneNumber) {
+  const onlyNums = phoneNumber.value.replace(/[\s\-\(\)]/g, '');
   if (onlyNums.match(/^((\+?3)?8)?0\d{9}$/)) {
-    inputPhoneNumber.className = 'correct'
+    phoneNumber.className = 'correct'
   } else {
-    inputPhoneNumber.className = 'incorrect';
+    phoneNumber.className = 'incorrect';
   }
 }
 
-function isCorrcetRegion() {
-  const index = selectRegion.selectedIndex;
-  const region = selectRegion.options[index].value;
+function isCorrcetRegion(selectedRegion) {
+  const index = selectedRegion.selectedIndex;
+  const region = selectedRegion.options[index].value;
   console.log(region)
   createSelectCity(region);
-  validateSelect(selectRegion);
+  validateSelect(selectedRegion);
 }
 
 
@@ -141,12 +144,4 @@ function createSelectCity(value) {
   })
   container.append(selectCity);
   selectRegion.after(container);
-}
-
-function validateSelect(e) {
-  if (e.selectedIndex) {
-    e.className = 'correct'
-  } else {
-    e.className = 'incorrect'
-  }
 }
