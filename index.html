@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<form id="form">
+    <div class="form-item">
+        <label for="fullName">Enter your full name:</label>
+        <input type="text" id="fullName" name="fullName" data-is-valid="no" class="form-field">
+    </div>
+    <div class="checkbox">
+        <input type="checkbox" id="agreeChBox" name="agreeChBox">
+        <label for="agreeChBox">I would prefer not to specify my phone number and home town</label>
+    </div>
+    <div class="additionalInfo">
+        <div class="form-item">
+            <label for="phoneNumber">Enter your phone number:</label>
+            <input type="text" id="phoneNumber" name="phoneNumber" data-is-valid="no" class="form-field">
+        </div>
+        <div class="form-item">
+            <label for="selectRegion" >Select your region:</label>
+            <select id="selectRegion" name="selectRegion" data-is-valid="no" class="form-field">
+                <option value="none" selected disabled></option>
+                <option value="kyiv">Kyiv</option>
+                <option value="center">Center</option>
+                <option value="north">North</option>
+                <option value="east">East</option>
+                <option value="south">South</option>
+                <option value="west">West</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-item">
+        <button type="submit" id="submitBtn" class="disabledBtn">Submit</button>
+    </div>
+</form>
+<script src="script.js"></script>
+</body>
+</html>
