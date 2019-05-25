@@ -143,4 +143,4 @@ const validateForm = (submitButton) => {
   submitButton.disabled = !isFormDataValid(privacySettings, form);
 }
 
-main();
+window.addEventListener('DOMContentLoaded', main);
