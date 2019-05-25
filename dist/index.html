@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Registration form</title>
+    <link rel="stylesheet" href="./styles/main.css">
+  </head>
+  <body>
+    <h1 class="header-text">Please, type information about yourself below:</h1>
+    <div class="centering-wrapper">
+      <form action="#" class="registration-form" name="registrationForm">
+        <div class="inputs-container">
+          <label for="full-name" class="labels-column">
+            Full name:
+          </label>
+          <input type="text" id="full-name" class="inputs-column" name="fullName" tabindex="1">
+
+          <label for="specific-information" class="labels-column">
+            I would prefer not to specify my phone number and home town:
+          </label>
+          <input type="checkbox" id="specific-information" class="inputs-column" name="needMore" tabindex="2">
+
+          <label for="phone-number" class="labels-column">
+            Phone number:
+          </label>
+          <input type="text" id="phone-number" class="inputs-column" name="phoneNumber" tabindex="3">
+
+          <label for="region" class="labels-column">
+            Region you leave:
+          </label>
+          <select id="region" class="inputs-column" name="region" tabindex="4">
+            <option value="blank"></option>
+          </select>
+
+          <label for="city" class="labels-column">
+            City:
+          </label>
+          <select id="city" class="inputs-column" name="city" tabindex="5">
+            <option value="blank"></option>
+          </select>
+        </div>
+        <input id="submit-button" type="submit" class="submit-button" tabindex="6" disabled>
+      </form>
+    </div>
+    <script type="text/javascript" src="scripts/main.js"></script>
+  </body>
+</html>
