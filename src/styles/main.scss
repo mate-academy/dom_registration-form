@@ -1,0 +1,87 @@
+@import "utils";
+@import "fonts";
+@import "typography";
+
+body {
+  background: lightgray;
+}
+
+.hover {
+  @include hover(box-shadow, 0 0 0.6em green);
+}
+
+.header-text {
+  text-align: center;
+  font-size: 38px;
+  font-weight: bold;
+  color: darkslateblue;
+  text-shadow: 1px 1px 3px darkslategrey;
+}
+
+.centering-wrapper {
+  width: 100%;
+  display: flex;
+
+  .registration-form {
+    width: 600px;
+    margin: auto;
+    border-radius: 6px;
+    border: 1px solid darkslateblue;
+    font-size: 18px;
+    box-shadow: 1px 1px 1em darkblue;
+
+    .inputs-container {
+      display: grid;
+      grid-column-gap: 1%;
+      grid-template-columns: 44% 55%;
+      grid-template-rows: repeat(auto-fill, 50px);
+      align-items: center;
+
+      .inputs-column,
+      .labels-column {
+        margin: 15px 10px;
+      }
+
+      .labels-column {
+        text-align: right;
+        justify-self: right;
+      }
+
+      .inputs-column {
+        @include myBorder();
+        justify-self: left;
+        font-size: 16px;
+        color: darkblue;
+        padding: 0 15px 0 13px;
+        background: rgba(255, 255, 255 , 0.35);
+        @include hover(box-shadow, 0 0 0.4em green);
+        @include focus(box-shadow, 0 0 0.5em green);
+      }
+
+      .inputs-column_inputting {
+        background: rgb(255, 255, 255);
+      }
+
+      .inputs-column_valid {
+        background: rgba(0, 255, 0, 0.35);
+      }
+
+      .inputs-column_invalid {
+        background: rgba(255, 0, 0, 0.35);
+      }
+
+      .inputs-column:not([type="checkbox"]) {
+        width: 280px;
+        height: 34px;
+      }
+    }
+
+    .submit-button {
+      display: block;
+      padding: 10px 30px;
+      margin: 30px 50px 10px auto;
+      @include myBorder();
+      @include focus(box-shadow, 0 0 0.5em green);
+    }
+  }
+}
