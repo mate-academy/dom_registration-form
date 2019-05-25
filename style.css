@@ -23,6 +23,7 @@ body {
 }
 
 .form__privacy-settings {
+  display: block;
   margin-bottom: 30px;
 }
 
@@ -38,7 +39,7 @@ body {
   font-size: 20px;
   margin-top: 24px;
   color: black;
-  background: rgb(210, 255, 214);
+  background: rgb(197, 247, 201);
   border-radius: 4px;
   cursor: pointer;
 }

@@ -11,25 +11,23 @@
 
 <body>
   <section class="form__wrapper">
-    <form action="javascript:void(0)" id="form">
-      <input placeholder="Full name" type="text" class="form__input form__field" id="full-name"
-        autocomplete="off" required>
+    <form action="javascript:void(0)" name="reg-form">
+      <input placeholder="Full name" type="text" class="form__input form__field" name="full-name" autocomplete="off"
+        required>
       <label class="form__privacy-settings">
-        <input type="checkbox" id="privacyCheck"> 
+        <input type="checkbox" name="privacy-check">
         I would prefer not to specify my phone number and home town
       </label>
-      <input type="text" placeholder="Number" class="form__input form__field" id="number" autocomplete="off">
-      <div id="select-box">
-        <select size="1" id="region" class="form__input form__field">
-          <option value=""></option>
-        </select>
-        <select size="1" id="city" class="form__input form__field elem_hidden">
-          <option></option>
-          <option>Not in the list</option>
-        </select>
+      <div id="extra-info">
+        <input type="text" placeholder="Number" class="form__input form__field" name="number" autocomplete="off">
+        <div id="select-box">
+          <select size="1" name="region" class="form__input form__field">
+            <option value=""></option>
+          </select>
+        </div>
       </div>
 
-      <input type="submit" value="Submit" class="form__input form__submit" id="submit" disabled>
+      <input type="submit" value="Submit" class="form__input form__submit" name="submit">
     </form>
   </section>
 
