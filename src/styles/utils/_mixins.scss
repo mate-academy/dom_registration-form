@@ -1,0 +1,20 @@
+@mixin hover($_property, $_toValue) {
+  transition: #{$_property} 0.2s;
+  &:hover {
+    #{$_property}: $_toValue;
+  }
+}
+
+@mixin focus($_property, $_toValue) {
+  transition: #{$_property} 0.2s;
+  &:focus {
+    #{$_property}: $_toValue;
+    background: #fff;
+  }
+}
+
+@mixin myBorder() {
+  box-sizing: border-box;
+  border: 2px solid darkslateblue;
+  border-radius: 15px 5px 18px 3px;
+}

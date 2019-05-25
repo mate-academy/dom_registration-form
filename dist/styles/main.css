@@ -1,0 +1,105 @@
+h1 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400; }
+
+@font-face {
+  font-family: "Roboto";
+  src: url("../fonts/Roboto-Regular-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+
+body {
+  background: lightgray; }
+
+.hover {
+  -webkit-transition: -webkit-box-shadow 0.2s;
+  transition: -webkit-box-shadow 0.2s;
+  transition: box-shadow 0.2s;
+  transition: box-shadow 0.2s, -webkit-box-shadow 0.2s; }
+  .hover:hover {
+    -webkit-box-shadow: 0 0 0.6em green;
+            box-shadow: 0 0 0.6em green; }
+
+.header-text {
+  text-align: center;
+  font-size: 38px;
+  font-weight: bold;
+  color: darkslateblue;
+  text-shadow: 1px 1px 3px darkslategrey; }
+
+.centering-wrapper {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex; }
+  .centering-wrapper .registration-form {
+    width: 600px;
+    margin: auto;
+    border-radius: 6px;
+    border: 1px solid darkslateblue;
+    font-size: 18px;
+    -webkit-box-shadow: 1px 1px 1em darkblue;
+            box-shadow: 1px 1px 1em darkblue; }
+    .centering-wrapper .registration-form .inputs-container {
+      display: grid;
+      grid-column-gap: 1%;
+      grid-template-columns: 44% 55%;
+      grid-template-rows: repeat(auto-fill, 50px);
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center; }
+      .centering-wrapper .registration-form .inputs-container .inputs-column,
+      .centering-wrapper .registration-form .inputs-container .labels-column {
+        margin: 15px 10px; }
+      .centering-wrapper .registration-form .inputs-container .labels-column {
+        text-align: right;
+        justify-self: right; }
+      .centering-wrapper .registration-form .inputs-container .inputs-column {
+        -webkit-box-sizing: border-box;
+                box-sizing: border-box;
+        border: 2px solid darkslateblue;
+        border-radius: 15px 5px 18px 3px;
+        justify-self: left;
+        font-size: 16px;
+        color: darkblue;
+        padding: 0 15px 0 13px;
+        background: rgba(255, 255, 255, 0.35);
+        -webkit-transition: -webkit-box-shadow 0.2s;
+        transition: -webkit-box-shadow 0.2s;
+        transition: box-shadow 0.2s;
+        transition: box-shadow 0.2s, -webkit-box-shadow 0.2s;
+        transition: box-shadow 0.2s; }
+        .centering-wrapper .registration-form .inputs-container .inputs-column:hover {
+          -webkit-box-shadow: 0 0 0.4em green;
+                  box-shadow: 0 0 0.4em green; }
+        .centering-wrapper .registration-form .inputs-container .inputs-column:focus {
+          -webkit-box-shadow: 0 0 0.5em green;
+                  box-shadow: 0 0 0.5em green;
+          background: #fff; }
+      .centering-wrapper .registration-form .inputs-container .inputs-column_inputting {
+        background: white; }
+      .centering-wrapper .registration-form .inputs-container .inputs-column_valid {
+        background: rgba(0, 255, 0, 0.35); }
+      .centering-wrapper .registration-form .inputs-container .inputs-column_invalid {
+        background: rgba(255, 0, 0, 0.35); }
+      .centering-wrapper .registration-form .inputs-container .inputs-column:not([type="checkbox"]) {
+        width: 280px;
+        height: 34px; }
+    .centering-wrapper .registration-form .submit-button {
+      display: block;
+      padding: 10px 30px;
+      margin: 30px 50px 10px auto;
+      -webkit-box-sizing: border-box;
+              box-sizing: border-box;
+      border: 2px solid darkslateblue;
+      border-radius: 15px 5px 18px 3px;
+      -webkit-transition: -webkit-box-shadow 0.2s;
+      transition: -webkit-box-shadow 0.2s;
+      transition: box-shadow 0.2s;
+      transition: box-shadow 0.2s, -webkit-box-shadow 0.2s; }
+      .centering-wrapper .registration-form .submit-button:focus {
+        -webkit-box-shadow: 0 0 0.5em green;
+                box-shadow: 0 0 0.5em green;
+        background: #fff; }
+
+/*# sourceMappingURL=main.css.map */
