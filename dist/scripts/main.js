@@ -7,14 +7,13 @@ const fullNameRegExp = new RegExp(
 const phoneNumberRegExp = /^(((\+?3)?\s?8\s?)?0)?(\d{2,4}(\s|-)?){1,4}$/;
 const citiesByRegionsObject = {
   'Kyiv': [],
-  'Center':
-    ['Cherkasy', 'Dnipro', 'Kropyvnytskyi', 'Poltava', 'Vinnytsia', 'Zhytomyr'],
+  'Center': ['Cherkasy', 'Dnipro', 'Kropyvnytskyi', 'Poltava',
+    'Vinnytsia', 'Zhytomyr'],
   'North': ['Chernihiv', 'Sumy'],
   'East': ['Donetsk', 'Kharkiv', 'Luhansk'],
   'South': ['Kherson', 'Mykolaiv', 'Odesa', 'Zaporizhzhia'],
-  'West':
-    ['Chernivtsi', 'Ivano-Frankivsk', 'Khmelnytskyi', 'Lutsk', 'Lviv', 'Rivne',
-      'Ternopil', 'Uzhhorod'],
+  'West': ['Chernivtsi', 'Ivano-Frankivsk', 'Khmelnytskyi', 'Lutsk',
+    'Lviv', 'Rivne', 'Ternopil', 'Uzhhorod'],
 };
 
 function main() {
@@ -26,7 +25,7 @@ function main() {
   const city = document.registrationForm.city;
   const submitButton = registrationForm.querySelector('input[type="submit"]');
 
-  const initBlankInSelect = function(selectElement) {
+  const initBlankInSelect = (selectElement) => {
     const blankOption = document.createElement('option');
 
     selectElement.options.length = 0;
@@ -35,27 +34,28 @@ function main() {
     selectElement.add(blankOption, null);
   };
 
-  const validateAll = function() {
+  const validateAndRender = (someEvent) => {
+    if (someEvent) {
+      someEvent.target.classList.remove('inputs-column_inputting');
+    }
+    if (validateAll()) {
+      submitButton.disabled = false;
+      submitButton.classList.add('hover');
+    } else {
+      submitButton.disabled = true;
+      submitButton.classList.remove('hover');
+    }
+  };
+
+  const validateAll = () => {
     let isValid;
-    const backgroundRed = function(someInput) {
-      someInput.classList.remove('inputs-column_valid');
-      someInput.classList.add('inputs-column_invalid');
-    };
-    const backgroundGreen = function(someInput) {
-      someInput.classList.remove('inputs-column_invalid');
-      someInput.classList.add('inputs-column_valid');
-    };
-    const emptied = function(someInput) {
-      someInput.classList
-        .remove('inputs-column_invalid', 'inputs-column_invalid');
-    };
 
     isValid = fullNameRegExp.test(fullName.value.trim());
     if (fullName.value !== '') {
       if (isValid) {
-        backgroundGreen(fullName);
+        addValidClassToElement(fullName);
       } else {
-        backgroundRed(fullName);
+        addInvalidClassToElement(fullName);
       }
     } else {
       emptied(fullName);
@@ -64,9 +64,9 @@ function main() {
       const nextResult = phoneNumberRegExp.test(phoneNumber.value.trim());
       if (phoneNumber.value !== '') {
         if (nextResult) {
-          backgroundGreen(phoneNumber);
+          addValidClassToElement(phoneNumber);
         } else {
-          backgroundRed(phoneNumber);
+          addInvalidClassToElement(phoneNumber);
         }
       } else {
         emptied(phoneNumber);
@@ -78,7 +78,20 @@ function main() {
     return isValid;
   };
 
-  const renderByCheckBox = function() {
+  function addInvalidClassToElement(someInput) {
+    someInput.classList.remove('valid');
+    someInput.classList.add('invalid');
+  }
+  function addValidClassToElement(someInput) {
+    someInput.classList.remove('invalid');
+    someInput.classList.add('valid');
+  }
+  function emptied(someInput) {
+    someInput.classList
+      .remove('invalid', 'valid');
+  }
+
+  const renderByCheckBox = () => {
     phoneNumber.hidden = needMore.checked;
     document.querySelector(`label[for='${phoneNumber.id}']`)
       .hidden = needMore.checked;
@@ -96,31 +109,20 @@ function main() {
   Object.keys(citiesByRegionsObject).forEach((someRegion) => {
     region.options[region.options.length] = new Option(someRegion, someRegion);
   });
-  region.addEventListener('change', (someEvent) => {
-    const selectedItem = someEvent.currentTarget
-      .options[region.options.selectedIndex];
-    if (selectedItem.value === 'blank') { return; }
 
-    citiesByRegionsObject[selectedItem.value].forEach((someCity) => {
+  region.addEventListener('change', (someEvent) => {
+    const selectedItem = someEvent.currentTarget.value;
+    if (selectedItem === 'blank') {
+      return;
+    }
+
+    citiesByRegionsObject[selectedItem].forEach((someCity) => {
       city.options[city.options.length] = new Option(someCity, someCity);
     });
     city.options[city.options.length] = new Option(
       'Not in the list', 'Other city'
     );
   });
-
-  const validateAndRender = function(someEvent) {
-    if (someEvent) {
-      someEvent.target.classList.remove('inputs-column_inputting');
-    }
-    if (validateAll()) {
-      submitButton.disabled = false;
-      submitButton.classList.add('hover');
-    } else {
-      submitButton.disabled = true;
-      submitButton.classList.remove('hover');
-    }
-  };
 
   // Add trigger for listing changing checkbox and rendering the form
   // according to it's value
