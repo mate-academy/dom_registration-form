@@ -1,0 +1,70 @@
+body {
+  font-size: 18px;
+}
+
+.form__wrapper {
+  margin: 20px auto;
+  border: 1px solid grey;
+  border-radius: 10px;
+  padding: 50px 50px;
+  width: 500px;
+}
+
+.form__input {
+  display: block;
+  width: 100%;
+  height: 50px;
+  margin: 0;
+  padding: 0;
+  border: none;
+  line-height: 48px;
+  margin-bottom: 30px;
+  font-size: 20px;
+}
+
+.form__privacy-settings {
+  display: block;
+  margin-bottom: 30px;
+}
+
+.form__field {
+  box-sizing: border-box;
+  padding-left: 20px;
+  color: black;
+  border-radius: 10px;
+  border: 1px solid grey;
+}
+
+.form__submit {
+  font-size: 20px;
+  margin-top: 24px;
+  color: black;
+  background: rgb(197, 247, 201);
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.form__submit:hover {
+  background: rgb(177, 250, 176);
+}
+
+.form__submit:disabled {
+  background: rgb(223, 222, 222);
+  cursor: default;
+}
+
+/* STATEs */
+
+.input_incorrect {
+  background: rgb(255, 161, 161);
+  border: 2px solid rgb(255, 85, 85);
+}
+
+.input_correct {
+  background: rgba(219, 255, 218, 0.5);
+  border: 2px solid rgba(166, 238, 171, 0.5);
+}
+
+.elem_hidden {
+  display: none;
+}
