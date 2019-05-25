@@ -1,5 +1,8 @@
 'use strict';
 
+const FULL_NAME_CHECK = /^[a-zA-Zа-яА-ЯёЁїЇІі'\-]{2,30} [a-zA-Zа-яА-ЯёЁїЇІі'\-]{2,30} ?([a-zA-Zа-яА-ЯёЁїЇІі'\-]{2,30})$/;
+const NUMBER_CHECK = /^(((380)?[0-9]{9})|(0[0-9]{9}))$/;
+
 function main() {
   const formBox = document.forms['reg-form'];
   const extra = formBox.querySelector('#extra-info');
@@ -38,10 +41,10 @@ const inputValidation = (input, normalizeString, type) => {
   let regex;
   switch(type) {
     case 'full-name': 
-      regex = /^[a-zA-Zа-яА-ЯёЁїЇІі'\-]{2,30} [a-zA-Zа-яА-ЯёЁїЇІі'\-]{2,30} ?([a-zA-Zа-яА-ЯёЁїЇІі'\-]{2,30})$/;
+      regex = FULL_NAME_CHECK;
       break;
     case 'number':
-      regex = /^(((380)?[0-9]{9})|(0[0-9]{9}))$/;
+      regex = NUMBER_CHECK;
       break;
     default:
       regex = /\w+/;
@@ -72,7 +75,7 @@ const normalizeInput = (value, type) => {
 
 const checkInput = (event) => {
   const { target } = event;
-  let { name, value } = event.target;
+  const { name, value } = event.target;
   const normalizeString = normalizeInput(value, name);
   const form = target.closest('form');
 
@@ -128,7 +131,7 @@ const privacyHandle = (extraBlock, event) => {
   extraBlock.classList.toggle('elem_hidden', privacyIsChecked);
 };
 
-const isFormDataValid = (privacy, form) => {
+const validateFormData = (privacy, form) => {
   if (privacy.checked) {
     return form['full-name'].classList.contains('input_correct');
   } else {
@@ -137,10 +140,11 @@ const isFormDataValid = (privacy, form) => {
   }
 }
 
-const validateForm = (submitButton) => {
-  const form = submitButton.closest('form');
+const validateForm = (form) => {
+  const submitButton = form['submit'];
   const privacySettings = form['privacy-check'];
-  submitButton.disabled = !isFormDataValid(privacySettings, form);
+  const isFormValid = validateFormData(privacySettings, form);
+  submitButton.disabled = !isFormValid;
 }
 
 window.addEventListener('DOMContentLoaded', main);
