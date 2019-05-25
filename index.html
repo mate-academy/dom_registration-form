@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="style.css">
+  <title>Document</title>
+</head>
+<body>
+  <section class="wrapper">
+    <section class="form">
+      <form name="validateForm">
+
+<section class="form__name">
+  <span>Name:</span>
+    <label>
+      <input 
+              type="text" 
+              placeholder="Your name" 
+              class="validate-form__input-name"
+              name="inputName"
+      >
+    </label>
+</section>
+
+<section class="checkbox">
+  <label>
+    <input 
+            type="checkbox"
+            name="checkboxValidate"
+            class="validate-form__input-checkbox"
+    >
+    <span>
+        I would prefer not to specify my phone number and home town
+    </span>
+  </label>
+</section>
+
+<section class="form__phone">
+  <span>Phone bumber:</span>
+    <label>
+      <input 
+              type="text" 
+              placeholder="Your phone number" 
+              class="validate-form__input-phone"
+              name="inputPhone"
+      >
+    </label>
+</section>
+
+<section class="form__region">
+<label><span>Select your region:</span>
+  <select 
+          name="selectRegion"
+          class="validate-form__select-region"
+  >
+    <option value="none">-</option>
+    <option value="kyiv">Kyiv</option>
+    <option value="center">Center</option>
+    <option value="north">North</option>
+    <option value="south">south</option>
+    <option value="west">West</option>
+    <option value="east">East</option>
+  </select>
+</label>
+</section>
+
+<section class="form__hometown hidden">
+  <label>
+    <span>Select your hometown:</span>
+<select name="selectHometown"></select>
+  </label>
+</section>
+
+<section class="form__button">
+  <input 
+          type="submit" 
+          value="submit" 
+          class="confirm-form" 
+          name="submitButton"
+  >
+  </button>
+</section>
+      </form>
+    </section>
+  </section>
+  <script src="script.js"></script>
+</body>
+</html>
