@@ -78,9 +78,9 @@ body {
           background: #fff; }
       .centering-wrapper .registration-form .inputs-container .inputs-column_inputting {
         background: white; }
-      .centering-wrapper .registration-form .inputs-container .inputs-column_valid {
+      .centering-wrapper .registration-form .inputs-container .valid {
         background: rgba(0, 255, 0, 0.35); }
-      .centering-wrapper .registration-form .inputs-container .inputs-column_invalid {
+      .centering-wrapper .registration-form .inputs-container .invalid {
         background: rgba(255, 0, 0, 0.35); }
       .centering-wrapper .registration-form .inputs-container .inputs-column:not([type="checkbox"]) {
         width: 280px;
