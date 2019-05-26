@@ -53,7 +53,6 @@ body {
   
   h1 {
     color: #fff;
-    border-color: #1161ee;
     border-bottom: 2px solid transparent;
     display: inline-block;
   }
@@ -158,6 +157,14 @@ body {
   
   button:disabled {
     opacity: 0.5;
+  }
+
+  .login-form .group .error {
+   background-color: rgba(224, 25, 18, 0.45);
+  }
+
+  .login-form .group .approved {
+    background-color: rgba(14, 158, 45, 0.45);
   }
   
   /*# sourceMappingURL=styles.css.map */

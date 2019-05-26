@@ -3,12 +3,12 @@
 const form = document.forms.user;
 const refuse = form.elements[1];
 const selectRegion = form.elements[3];
-let state = false;
+const regExpName = /^[а-яa-zА-ЯA-Z\-]{0,}\s[а-яa-zА-ЯA-Z\-]{1,}(\s[а-яa-zА-ЯA-Z\-]{1,})?$/;
+const regExpPhone = /^((\+)?\b(8|38)?(0[\d]{2}))([\d-]{5,8})([\d]{2})$/;
 
 //скрываем всё после checked
 refuse.addEventListener('click', () => {
   form.querySelector('.refus').classList.toggle('hidden');
-  state = refuse.checked;  
 });
 
 //выбираем регион и город
@@ -26,30 +26,43 @@ selectRegion.addEventListener('change', (event) => {
   }
 })
 
-//валидация вводимых данных
+//получение вводимых данных
 const getInput = function(fieldName) {
     return form.elements[fieldName].value.trim();
 };
 
-const regExpName = /^[а-яa-zА-ЯA-Z\-]{0,}\s[а-яa-zА-ЯA-Z\-]{1,}(\s[а-яa-zА-ЯA-Z\-]{1,})?$/;
-const regExpPhone = /^((\+)?\b(8|38)?(0[\d]{2}))([\d-]{5,8})([\d]{2})$/;
-
-const validateInput = function() {
+//валидация поля имени
+const validateInputName= function() {
     const name = getInput('name');
-    const phone = getInput('phone');
-    return name.match(regExpName) && phone.match(regExpPhone);
+    if(name.match(regExpName)) {
+      form.elements['name'].classList.add('approved');
+    } else {
+      form.elements['name'].classList.add('error');
+    }
 };
 
-const validateInputСheck = function() {
-    const name = getInput('name');
-    return name.match(regExpName)
+form.elements['name'].addEventListener('input', validateInputName);
+
+//валидация поля номера
+const validateInputPhone = function() {
+  const phone = getInput('phone');
+  if(phone.match(regExpPhone)) {
+    form.elements['phone'].classList.add('approved');
+  } else {
+    form.elements['phone'].classList.add('error');
+  }
 };
 
-const updateButtonState = function(){
+form.elements['phone'].addEventListener('input', validateInputPhone);
 
-if(state) {
-   form.elements.submit.disabled = !validateInputСheck();
-} form.elements.submit.disabled = !validateInput();
-};
-
-form.addEventListener('input', updateButtonState);
+//изменение состояния кнопки
+form.addEventListener('change', ()=> {
+  const index = selectRegion.selectedIndex;
+  if(getInput('name').match(regExpName)&&refuse.checked) {
+    form.elements.submit.disabled = false;
+  } else if(getInput('name').match(regExpName) && 
+  getInput('phone').match(regExpPhone) && 
+  selectRegion.value!=="" && document.getElementById(index).value!=="") {
+    form.elements.submit.disabled = false;
+  }
+});
