@@ -1,0 +1,50 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+#loginForm {
+  width: 300px;
+  margin: 10px auto;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+#loginForm label{
+  margin-bottom: 10px;
+}
+
+.detailed-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.success {
+  background: green;
+}
+
+.unsuccess {
+  background: red;
+}
+
+.center,
+.north,
+.east,
+.south,
+.west {
+  display: none;
+}
+
+.hide {
+  display: none;
+}
+
+.block {
+  display: inline-block;
+}
+
+.passed {
+  color: #ddd;
+}
