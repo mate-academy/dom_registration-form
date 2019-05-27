@@ -1,29 +1,29 @@
 'use strict';
-const form = document.querySelector('form');
-const inputFullname = document.querySelector('input#fullname');
-const fullNameHelper = document.querySelector('div#fullname');
-const inputPhoneNumber = document.querySelector('input#phone');
-const phoneNumberHelper = document.querySelector('div#phone');
-const inputHiddenInfo = document.querySelector('input#hidden-info');
-const extraInfoHelper = document.querySelector('div#extra-info');
-const inputRegion = document.querySelector('select#region');
-const selectCities = document.querySelector('select#city');
-const cityHelper = document.querySelector('div#city');
-const submit = document.querySelector('input#submit');
+const form = document.forms[0];
+const inputFullname = form.querySelector('input#fullname');
+const fullNameInformer = form.querySelector('div#fullname');
+const inputPhoneNumber = form.querySelector('input#phone');
+const phoneNumberInformer = form.querySelector('div#phone');
+const inputHiddenInfo = form.querySelector('input#hidden-info');
+const extraInfoInformer = form.querySelector('div#extra-info');
+const inputRegion = form.querySelector('select#region');
+const selectCities = form.querySelector('select#city');
+const cityInformer = form.querySelector('div#city');
+const submit = form.querySelector('input#submit');
 
-function setValidStyle (element, helper, valid) {
+function setValidStyle (element, informer, valid) {
   if (valid) {
     element.classList.remove('no-valid');
     element.classList.add('valid');
-    if (helper) {
-      helper.classList.add('display-none');
+    if (informer) {
+      informer.classList.add('display-none');
     }
   } else {
     element.classList.remove('valid');
     if (valid !== undefined) {
       element.classList.add('no-valid');
-      if (helper) {
-        helper.classList.remove('display-none');
+      if (informer) {
+        informer.classList.remove('display-none');
       }
     } else {
       element.classList.remove('no-valid');
@@ -32,16 +32,17 @@ function setValidStyle (element, helper, valid) {
 }
 
 function checkFullName(event) {
-  const fullNameValue = inputFullname.value.trim();
+  const fullNameValue = inputFullname.value.replace(/\s+/g, ' ').trim();
+  console.log(fullNameValue);
   const wordsNum = fullNameValue.split(' ').length;
   const valid = fullNameValue.length === 0 ? undefined : (wordsNum > 1) && (wordsNum < 4);
-  setValidStyle(inputFullname, fullNameHelper, valid);
+  setValidStyle(inputFullname, fullNameInformer, valid);
 }
 
 function checkPhoneNumber(event) {
   const phoneNumberValue = inputPhoneNumber.value.replace(/[\s\-\(\)]/g, '');
   const valid = phoneNumberValue.length === 0 ? undefined : phoneNumberValue.match(/^((\+?3)?8)?0\d{9}$/) !== null;
-  setValidStyle(inputPhoneNumber, phoneNumberHelper, valid);
+  setValidStyle(inputPhoneNumber, phoneNumberInformer, valid);
 }
 
 inputFullname.addEventListener('focus', checkFullName);
@@ -53,28 +54,30 @@ inputPhoneNumber.addEventListener('input', checkPhoneNumber);
 inputHiddenInfo.addEventListener('input', (event) => {
   const checked = inputHiddenInfo.checked;
   if (checked) {
-    extraInfoHelper.classList.add('display-none');
+    extraInfoInformer.classList.add('display-none');
   } else {
-    extraInfoHelper.classList.remove('display-none');
+    extraInfoInformer.classList.remove('display-none');
   }
 });
 
 inputRegion.addEventListener('input', (event) => {
   const regionValue = inputRegion.value.toLowerCase();
   if (regionValue) {
-    const cityOptions = cityHelper.querySelectorAll('[data-region="'+regionValue+'"]');
-    cityHelper.classList.remove('display-none');
-    cityOptions.forEach((element) => {
-      element.classList.remove('display-none');
-    })
-
+    cityInformer.classList.remove('display-none');
   } else {
-    const cityOptions = cityHelper.querySelectorAll('[data-region]');
-    cityHelper.classList.add('display-none');
-    cityOptions.forEach((element) => {
-      element.classList.add('display-none');
-    })
+    cityInformer.classList.add('display-none');
   }
+  if (selectCities.selectedIndex >= 0) {
+    selectCities.selectedIndex = -1;
+  }
+  const cityOptions = cityInformer.querySelectorAll('[data-region]');
+  cityOptions.forEach((element) => {
+    if (regionValue === element.dataset.region) {
+      element.classList.remove('display-none');
+    } else {
+      element.classList.add('display-none');
+    }
+  })
 });
 
 function checkFormValidity () {
