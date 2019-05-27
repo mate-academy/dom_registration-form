@@ -10,8 +10,8 @@ const regions = {
 
 const formState = {
   userName: false,
-  userPhone: false,
   userMail: false,
+  userPhone: false,
   userRegion: false,
   userCity: false,
 };
@@ -36,6 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (event.target.name === 'userCity') cityCheck(userCity);
     if (event.target.name === 'dataRefuse') refusing(event);
     isInvalid(submitButton, formState);
+    console.log(formState)
   });
 });
 
@@ -55,7 +56,7 @@ function refusing(event) {
     toggle(userRegion.parentElement, 'hidden');
   } else {
     toggle(userPhone.parentElement, 'show');
-    toggle(userCity.parentElement, 'show');
+    formStateTogler(userCity.parentElement, 'show');
     toggle(userRegion.parentElement, 'show');
   }
 }
@@ -77,6 +78,7 @@ function renderCity(region, list, userCity) {
     formState.userCity = false;
     return;
   }
+
   const arr = ['', ...list[region.value]];
   arr.forEach(item => {
     const element = document.createElement('option');
@@ -85,7 +87,7 @@ function renderCity(region, list, userCity) {
     userCity.append(element);
   });
   toggle(userCity.parentElement, 'show');
-  formState[userRegion] = true;
+  formState.userRegion = true;
 }
 
 
@@ -131,29 +133,15 @@ function validateMail(userMail, reg) {
 }
 
 function toggle(input, toggler='') {
-  if (toggler === 'show') {
-    input.classList.add('show');
-    input.classList.remove('hidden');
-    formState[input.firstElementChild.name] = false;
-  } else if (toggler === 'hidden') {
-    input.classList.add('hidden');
-    input.classList.remove('show');
-    formState[input.firstElementChild.name] = true;
-  } else if (toggler === 'success') {
-    input.classList.add('success');
-    input.classList.remove('failed');
-    formState[input.name] = true;
-  } else if (toggler === 'failed') {
-    input.classList.add('failed');
-    input.classList.remove('success');
-    formState[input.name] = false;
-  } else if (toggler === ''){
-    input.classList.remove('failed');
-    input.classList.remove('success');
-    formState[input.name] = false;
-  } else {
-    console.log(`EROR! Unexpected input ${toggler}`);
-  }
+  const properties = {show: 'hidden', hidden: 'show', failed: 'success', success: 'failed'};
+  input.classList.add(toggler);
+  input.classList.remove(properties[toggler]);
+  formStateTogler (input, toggler);
+}
+
+function formStateTogler (input, toggler) {
+  const item = input.name || input.firstElementChild.name
+  toggler === 'hidden' || toggler === 'success' ? formState[item] = true : formState[item] = false;
 }
 
 function validateInput(input, reg) {
