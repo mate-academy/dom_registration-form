@@ -36,7 +36,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (event.target.name === 'userCity') cityCheck(userCity);
     if (event.target.name === 'dataRefuse') refusing(event);
     isInvalid(submitButton, formState);
-    console.log(formState)
   });
 });
 
