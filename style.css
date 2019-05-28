@@ -1,0 +1,60 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+form {
+    margin: 100px auto 0;
+    padding: 10px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid gray;
+    border-radius: 5px;
+    box-shadow: 3px 3px 8px 0px rgba(201,191,201,1);
+}
+
+input,
+select {
+    margin: 10px 0 20px;
+    padding: 5px;
+    outline: none;
+    border-radius: 3px;
+    border: 1px solid black;
+}
+
+select[name="city"] {
+    width: 100%;
+}
+
+.hide-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.hide-info input {
+    margin-right: 10px;
+}
+
+.error {
+    color: red;
+    margin: -10px 0 20px;
+}
+
+.wide-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.valid {
+    background: rgb(93, 243, 93);
+}
+
+.not-valid {
+    background: rgb(240, 90, 90);
+}
+
+.display-none {
+    display: none;
+}
