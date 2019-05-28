@@ -16,11 +16,12 @@ selectRegion.addEventListener('change', (event) => {
   const index =  event.target.value;
   const city = document.body.querySelectorAll('.city');
 
-  for(let i = 0; i < city.length; i++) {
-    if (!city[i].classList.contains('hidden')) {
-        city[i].classList.add('hidden');
-    }
+ city.forEach((town) => {
+    if (!town.classList.contains('hidden')) {
+      town.classList.add('hidden');
   }
+  })
+
     if(index!=='Kiev') {
   document.getElementById(index).classList.remove('hidden');
   }
@@ -31,29 +32,18 @@ const getInput = function(fieldName) {
     return form.elements[fieldName].value.trim();
 };
 
-//валидация поля имени
-const validateInputName= function() {
-    const name = getInput('name');
-    if(name.match(regExpName)) {
-      form.elements['name'].classList.add('approved');
-    } else {
-      form.elements['name'].classList.add('error');
-    }
-};
-
-form.elements['name'].addEventListener('input', validateInputName);
-
-//валидация поля номера
-const validateInputPhone = function() {
-  const phone = getInput('phone');
-  if(phone.match(regExpPhone)) {
-    form.elements['phone'].classList.add('approved');
+//валидация поля
+const validateInput= function(field, template) {
+  const name = getInput(field);
+  if(name.match(template)) {
+    form.elements[field].classList.add('approved');
   } else {
-    form.elements['phone'].classList.add('error');
+    form.elements[field].classList.add('error');
   }
 };
 
-form.elements['phone'].addEventListener('input', validateInputPhone);
+form.elements['name'].addEventListener('input', ()=> {validateInput('name', regExpName)});
+form.elements['phone'].addEventListener('input', ()=> {validateInput('phone', regExpPhone)});
 
 //изменение состояния кнопки
 form.addEventListener('change', ()=> {
