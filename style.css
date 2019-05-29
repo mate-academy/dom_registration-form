@@ -1,0 +1,9 @@
+form {}
+
+.invalid {
+    background-color: red;
+}
+
+.valid {
+    background-color: green;
+}
