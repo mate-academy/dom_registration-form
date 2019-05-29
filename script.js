@@ -1,22 +1,19 @@
 const name = document.querySelector("input[name=fullname]");
 name.addEventListener("blur", (event) => {
-  checkName(event);
+  checkName();
 });
 
-function checkName(event) {
+function checkName() {
   let nameWords = name.value.split(" ").filter(function (el) {
       return el != null && el != "" && el != undefined;
     });
 
-  if(nameWords.length >= 2) {
+  if(nameWords.length >= 2 && nameWords.length <= 3) {
     name.style.background = "green";
     return true;
   }
-
-  if(nameWords.length < 2) {
-    name.style.background = "red";
-    return false;
-  }
+  name.style.background = "red";
+  return false;  
 }
 
 name.addEventListener("focus", (event) => {
@@ -25,25 +22,20 @@ name.addEventListener("focus", (event) => {
 
 const textnumber = document.querySelector("input[name=number]");
 textnumber.addEventListener("blur", (event) => {
-  checkNumber(event);
+  checkNumber();
 });
 
-function checkNumber(event) {
-  let numbr = textnumber.value.split("-").join("")
-                              .split(" ").join("")
-                              .split("(").join("")
-                              .split(")").join("");
+function checkNumber() {
+  let phoneNumber = textnumber.value.replace(/[() -]/g, "");
 
-  let phoneno = /\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/;
+  let phoneNo = /\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/;
   
-  if(numbr.match(phoneno)) {
+  if(phoneNumber.match(phoneNo)) {
     textnumber.style.background = "green";
     return true;
   }
-  else {
-    textnumber.style.background = "red";
-    return false;
-  }
+  textnumber.style.background = "red";
+  return false;
 }
 
 textnumber.addEventListener("focus", (event) => {
@@ -52,7 +44,7 @@ textnumber.addEventListener("focus", (event) => {
 
 const region = document.querySelector("select[name=region]");
 const city =  document.querySelector("select[name=city]");
-const regiontocity = {
+const regionToCity = {
   "Center": ["Cherkasy", "Dnipro", "Kropyvnytskyi", "Poltava", "Vinnytsia", "Zhytomyr"], 
   "North": ["Chernihiv", "Sumy"], 
   "East": ["Donetsk", "Kharkiv", "Luhansk"], 
@@ -61,10 +53,10 @@ const regiontocity = {
 }
 
 region.addEventListener("input", (event) => {
-  checkRegion(event);
+  checkRegion();
 });
 
-function checkRegion(event) {
+function checkRegion() {
   if(region.value === "") {
     return false;
   }
@@ -78,9 +70,9 @@ function checkRegion(event) {
   if(region.value != "Kyiv") {
     city.style.display = "block";
 
-    for(let cty of regiontocity[region.value]) {
+    for(let cityLocal of regionToCity[region.value]) {
       let option = document.createElement("option");
-      option.innerHTML = cty;
+      option.innerHTML = cityLocal;
       city.appendChild(option);
     }
     let option = document.createElement("option");
@@ -108,15 +100,15 @@ hideAll.addEventListener("input", () => {
 });
 
 const btn = document.querySelector("form");
-btn.onsubmit = function validateForm(event) {
+btn.addEventListener("submit", function(event) {
   
-  if(!checkName(event))
+  if(!checkName())
   {
     return false;
   }
   if(!hideAll.checked) {
     
-    if(!checkNumber(event)) return false;
+    if(!checkNumber()) return false;
 
     if(region.value == "") {
       region.style.background = "red"
@@ -136,5 +128,5 @@ btn.onsubmit = function validateForm(event) {
       }
   }
   return true;
-}
+});
 
