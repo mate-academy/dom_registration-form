@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+  <head>
+    <link rel="stylesheet" href="lib/style.css">
+  </head>
+  <body>
+    <form>
+      <input type="text" name="fullname"> <br>
+      <label> 
+         I would prefer not to specify my phone number and home town
+         <input type="checkbox" name="hide"> <br> 
+      </label>
+      <div id="hideable">
+      <input type="text" name="number"> <br>
+      
+      <select name="region">
+        <option></option>
+        <option>Kyiv</option>
+        <option>Center</option>
+        <option>North</option>
+        <option>East</option>
+        <option>South</option>
+        <option>West</option>
+
+      </select>
+
+      <select name="city" style="display: none;float:left">
+        <option></option>
+      </select>
+      </div><br>
+      <input type="submit" value="Submit" >
+    </form>
+  <script type="text/javascript" src="./script.js"></script>
+  </body>
+</html>

@@ -1,3 +1,6 @@
+- [For review GitHub Pages](https://batsenko.github.io/dom_registration-form/)
+
+
 # Registration Form
 
 1) Create an input field for entering the full name of a person. The background of the control should be one of the three colors:
