@@ -14,3 +14,4 @@
 5) Place a checkbox above #2 with the label `I would prefer not to specify my phone number and home town`. When this control is checked, hide #2, #3, and #4 altogether.
 
 6) Put a submit button below the controls. It should be enabled only when all necessary fields are filled out: a valid full name is provided and either the option in #5 is checked or a valid phone number is entered as well as a region and a city (or the `Not in the list` option) are picked.
+- [demo] (https://stasgostev.github.io/dom_registration-form/.)

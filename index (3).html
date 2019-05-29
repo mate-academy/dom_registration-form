@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<form>
+  <div class="rowLine">
+      <div class="leftSide">
+          <label for="name" id="name-label">Full name</label>
+      </div>
+      <div class="rightSide ">
+          <input type="text" id="name" name="name" class="inputField textfield" placeholder="Enter your name">
+          </div>
+      </div>
+  </div>
+  <div class="hide_wrap">
+  <div class="rowLine">
+    <div class="leftSide">
+        <label for="phone">Enter your phone number:</label>
+    </div>  
+    <div class="rightSide ">
+        <input type="tel" id="phone" name="phone" placeholder="Enter your nuber">
+    </div>
+  </div>
+  <div class="rowLine">
+      <div class="leftSide">
+        <label for="city">Select your city:</label>
+      </div>  
+      <div class="rightSide ">
+          <select name="region" id="region">
+            <!-- <option value="" disabled selected></option> -->
+          </select>
+      </div> 
+  </div>
+</div>
+  <div><label>
+    <input type="checkbox" id="checkbox">
+    I would prefer not to specify my phone number and home town
+    </label>
+  </div>
+
+  <input type="submit" value="Submit" class="submit" id="submit" disabled>
+</form> 
+<script src="js/main.js"></script>
+</body>
+</html>
+
