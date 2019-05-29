@@ -1,12 +1,12 @@
 window.addEventListener('load', () => {
-    const form = document.getElementById('form');
-    const fullName = document.getElementById('fullName');
-    const phoneNumber = document.getElementById('phoneNumber');
-    const selectRegion = document.getElementById('selectRegion');
-    const additionalInfo = document.querySelector('.additionalInfo');
-    const agreeChBox = document.getElementById('agreeChBox');
-    const submitBtn = document.getElementById('submitBtn');
+    const form = document.forms['form'];
+    const fullName = form.elements['fullName'];
+    const phoneNumber =  form.elements['phoneNumber'];
+    const selectRegion = form.elements['selectRegion'];
+    const agreeChBox = form.elements['agreeChBox'];
+    const submitBtn = form.elements['submitBtn'];
     const fields = form.querySelectorAll('.form-field');
+    const additionalInfo = form.querySelector('.additionalInfo');
 
     const selectData = {
         center: 'Cherkasy, Dnipro, Kropyvnytskyi, Poltava, Vinnytsia, Zhytomyr, Not in the list',
