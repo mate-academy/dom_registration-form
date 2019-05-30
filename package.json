@@ -1,0 +1,26 @@
+{
+  "name": "dom_registration-form",
+  "version": "1.0.0",
+  "description": "1) Create an input field for entering the full name of a person. The background of the control should be one of the three colors:\r     - white, if the user hasn’t yet once focused on the field or the field is currently in focus (the user hasn’t finished typing);\r     - green if the field is not currently in focus and the name provided by the user consists of exactly 2 or 3 words (after trimming);\r     - red otherwise (indicating incorrect input).",
+  "main": "index.js",
+  "dependencies": {
+    "browser-sync": "^2.26.5"
+  },
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-sass": "^4.0.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OlhaMazurenko/dom_registration-form.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/OlhaMazurenko/dom_registration-form/issues"
+  },
+  "homepage": "https://github.com/OlhaMazurenko/dom_registration-form#readme"
+}
