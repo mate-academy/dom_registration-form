@@ -19,18 +19,25 @@ const submit = document.querySelector('#submit');
 // events 
 
 form.addEventListener('change', (e) => {
-  if (e.target === inputFullName) {
-    isCorrectFullName(e.target);
-  }
-  if (e.target === inputPhoneNumber) {
-    isCorrectPhoneNubmer(e.target);
-  }
-  if (e.target === selectRegion) {
-    isCorrcetRegion(e.target);
-  }
-  if (e.target === hiddenPhoneAndTown) {
-    hidePhoneAndTown(e.target.checked);
-  }
+
+  switch(e.target) {
+    case inputFullName: 
+      isCorrectFullName(e.target);
+      break;
+
+    case inputPhoneNumber: 
+      isCorrectPhoneNubmer(e.target);
+      break;
+
+    case selectRegion: 
+      isCorrcetRegion(e.target);
+      break;
+
+    case hiddenPhoneAndTown: 
+      hidePhoneAndTown(e.target.checked);
+      break;
+  };
+
   validateAllForm();
 })
  
@@ -67,7 +74,6 @@ function isCorrectPhoneNubmer(phoneNumber) {
 function isCorrcetRegion(selectedRegion) {
   const index = selectedRegion.selectedIndex;
   const region = selectedRegion.options[index].value;
-  console.log(region)
   createSelectCity(region);
   validateSelect(selectedRegion);
 }
@@ -107,7 +113,7 @@ function createSelectCity(value) {
 
   if ((value === 'Kiev' || value === 'empty') && !!removeContainer) {
     removeContainer.remove();
-  }
+  } 
 
   if (value === 'Kiev' || value === 'empty') return;
 
