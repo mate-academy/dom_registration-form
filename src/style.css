@@ -1,0 +1,15 @@
+.correct {
+  background: green;
+}
+
+.incorrect {
+  background: red;
+}
+
+div {
+  margin-top: 10px;
+}
+
+.cityDisabled {
+  display: none;
+}

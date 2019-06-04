@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+ 
+  <form name="registerForm">
+    <div>
+      <label for="fullName">Full Name</label>
+      <input type="text" id="fullName" autocomplete="off">
+    </div>
+
+    <div>
+      <label for="phoneNumber">Phone Number</label>
+      <input type="text" id="phoneNumber" autocomplete="off">
+    </div>
+
+    <div>
+      <label for="selectRegion">Choose you Region</label>
+      <select id="selectRegion">
+        <option value="empty" selected></option>
+        <option value="Kiev">Kiev</option>
+        <option value="Center">Center</option>
+        <option value="North">North</option>
+        <option value="East">East</option>
+        <option value="South">South</option>
+        <option value="West">West</option>
+      </select>
+    </div>
+    
+
+    <div class="checkbox">
+      <label for="checkbox">I would prefer not to specify my phone number and home town.</label>
+      <input type="checkbox" id="checkbox">
+    </div>
+
+    <input type="submit" disabled value="submit" id="submit">
+  </form>
+  
+  <script src="main.js"></script>
+</body>
+</html>
