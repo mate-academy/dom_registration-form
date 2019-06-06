@@ -28,9 +28,7 @@ selectRegion.addEventListener('change', (event) => {
 })
 
 //получение вводимых данных
-const getInput = function(fieldName) {
-    return form.elements[fieldName].value.trim();
-};
+const getInput = fieldName => form.elements[fieldName].value.trim();
 
 //валидация поля
 const validateInput= function(field, template) {
@@ -42,11 +40,13 @@ const validateInput= function(field, template) {
   }
 };
 
-form.elements['name'].addEventListener('input', ()=> {validateInput('name', regExpName)});
-form.elements['phone'].addEventListener('input', ()=> {validateInput('phone', regExpPhone)});
+form.elements['name'].addEventListener('input', () => {
+  validateInput('name', regExpName)});
+form.elements['phone'].addEventListener('input', () => {
+  validateInput('phone', regExpPhone)});
 
 //изменение состояния кнопки
-form.addEventListener('change', ()=> {
+form.addEventListener('change', () => {
   const index = selectRegion.selectedIndex;
   if(getInput('name').match(regExpName)&&refuse.checked) {
     form.elements.submit.disabled = false;
